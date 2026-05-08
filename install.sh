@@ -85,9 +85,28 @@ for skill in grill-me to-prd to-issues triage implement; do
   echo "✓ Linked $skill"
 done
 
+
+# Append directives to ~/.claude/CLAUDE.md (idempotent)
+GLOBAL_CLAUDE="$HOME/.claude/CLAUDE.md"
+INCLUDE_LINE="@include $REPO_DIR/directives.md"
+FENCE="# === agent-skills directives ==="
+
+if grep -qF "$FENCE" "$GLOBAL_CLAUDE" 2>/dev/null; then
+  echo "✓ Directives already in $GLOBAL_CLAUDE (skipped)"
+elif grep -qF "$INCLUDE_LINE" "$GLOBAL_CLAUDE" 2>/dev/null; then
+  echo "✓ Directives already in $GLOBAL_CLAUDE (skipped)"
+else
+  echo "" >> "$GLOBAL_CLAUDE"
+  echo "$FENCE" >> "$GLOBAL_CLAUDE"
+  echo "$INCLUDE_LINE" >> "$GLOBAL_CLAUDE"
+  echo "✓ Added directives to $GLOBAL_CLAUDE"
+  echo "  → $INCLUDE_LINE"
+fi
+
 echo ""
 echo "NOTE: Uses your current gh token. Recommend a repo-scoped token for implement:"
 echo "      gh auth refresh --scopes repo"
 echo ""
 echo "Done. Restart Claude Code to load the skills."
 echo "Pipeline: grill-me → to-prd → to-issues → triage → implement"
+echo "Token mode: prefix any message with !c to compress output (~75% fewer tokens)"

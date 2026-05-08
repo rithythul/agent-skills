@@ -49,29 +49,19 @@ Run `./install.sh` from inside your project directory to also create the require
 - [Pipeline walkthrough](docs/pipeline.md)
 - [ralph-loop setup](docs/ralph-loop.md)
 
-## Example: compressed session with `!c`
+## Token efficiency
 
-Add this to your `~/.claude/CLAUDE.md` to enable caveman mode:
-
-```markdown
-## Caveman Mode
-When I start a message with `!c` or say "caveman", respond in compressed style
-for the rest of the session: drop articles, pleasantries, filler. Keep code,
-paths, numbers, error text verbatim. Bullets over prose. No preamble, no recap.
-Stay technically precise — compression is lexical, not semantic.
-```
-
-Then run the pipeline in compressed mode to cut token usage ~75%:
+`install.sh` automatically adds a `directives.md` include to your `~/.claude/CLAUDE.md`. This ships a caveman mode directive — prefix any message with `!c` to compress Claude's output ~75% for the session.
 
 ```
-!c /grill-me         — terse questions, no padding
-!c /to-prd           — lean PRD, no filler prose
-!c /to-issues        — issue list only, no explanation
-!c /triage           — one-line summaries per issue, approve/skip/close
-!c /implement        — status updates only, no narration
+!c /grill-me    — terse questions, no padding
+!c /to-prd      — lean PRD, no filler prose
+!c /to-issues   — issue list only, no explanation
+!c /triage      — one-line per issue, approve/skip/close
+!c /implement   — status updates only, no narration
 ```
 
-Caveman stays active for the whole session once triggered. Say `normal mode` to turn it off.
+Say `normal mode` to restore full output. Directives stay current with `git pull` — no re-install needed.
 
 ## Credits
 
