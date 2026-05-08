@@ -49,13 +49,35 @@ Run `./install.sh` from inside your project directory to also create the require
 - [Pipeline walkthrough](docs/pipeline.md)
 - [ralph-loop setup](docs/ralph-loop.md)
 
+## Example: compressed session with `!c`
+
+Add this to your `~/.claude/CLAUDE.md` to enable caveman mode:
+
+```markdown
+## Caveman Mode
+When I start a message with `!c` or say "caveman", respond in compressed style
+for the rest of the session: drop articles, pleasantries, filler. Keep code,
+paths, numbers, error text verbatim. Bullets over prose. No preamble, no recap.
+Stay technically precise — compression is lexical, not semantic.
+```
+
+Then run the pipeline in compressed mode to cut token usage ~75%:
+
+```
+!c /grill-me         — terse questions, no padding
+!c /to-prd           — lean PRD, no filler prose
+!c /to-issues        — issue list only, no explanation
+!c /triage           — one-line summaries per issue, approve/skip/close
+!c /implement        — status updates only, no narration
+```
+
+Caveman stays active for the whole session once triggered. Say `normal mode` to turn it off.
+
 ## Credits
 
 `grill-me`, `to-prd`, `to-issues`, and `tdd` are adapted from **[mattpocock/skills](https://github.com/mattpocock/skills)** by [Matt Pocock](https://github.com/mattpocock) — the original workflow that inspired this pipeline. MIT licensed.
 
 `implement` and `triage` were built on top of that foundation by KOOMPI, with the ralph-loop integration and human-gate pattern added for autonomous execution safety.
-
-`caveman` mode (the `!c` directive) is adapted from **[JuliusBrussee/caveman](https://github.com/JuliusBrussee/caveman)** by Julius Brussee.
 
 ## License
 
