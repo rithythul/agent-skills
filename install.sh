@@ -1,10 +1,30 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-SKILLS_DIR="$HOME/.claude/skills"
 REPO_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+PROJECT_MODE=false
 
-echo "KOOMPI Agent Skills — installer"
+# Parse flags
+for arg in "$@"; do
+  case $arg in
+    --project) PROJECT_MODE=true ;;
+    --help|-h)
+      echo "Usage: ./install.sh [--project]"
+      echo ""
+      echo "  (no flag)   Install globally into ~/.claude/skills/  (all projects)"
+      echo "  --project   Install into .claude/skills/ in current directory (this project only)"
+      exit 0
+      ;;
+  esac
+done
+
+if $PROJECT_MODE; then
+  SKILLS_DIR="$(pwd)/.claude/skills"
+  echo "KOOMPI Agent Skills — project install ($(pwd))"
+else
+  SKILLS_DIR="$HOME/.claude/skills"
+  echo "KOOMPI Agent Skills — global install (~/.claude/skills/)"
+fi
 echo ""
 
 # Check gh auth
@@ -40,12 +60,13 @@ if gh repo view &>/dev/null 2>&1; then
     fi
   done
 else
-  echo "NOTE: Not inside a GitHub repo — skipping label creation. Run install.sh from your project directory to create labels."
+  echo "NOTE: Not inside a GitHub repo — skipping label creation."
+  echo "      Run install.sh from your project directory to create labels."
 fi
 
 # Install skills
 mkdir -p "$SKILLS_DIR"
-for skill in grill-me to-prd to-issues implement; do
+for skill in grill-me to-prd to-issues triage implement; do
   target="$SKILLS_DIR/$skill"
   expected="$REPO_DIR/skills/$skill"
   if [ -L "$target" ]; then
@@ -69,4 +90,4 @@ echo "NOTE: Uses your current gh token. Recommend a repo-scoped token for implem
 echo "      gh auth refresh --scopes repo"
 echo ""
 echo "Done. Restart Claude Code to load the skills."
-echo "Pipeline: grill-me → to-prd → to-issues → implement"
+echo "Pipeline: grill-me → to-prd → to-issues → triage → implement"

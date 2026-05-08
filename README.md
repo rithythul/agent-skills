@@ -7,7 +7,7 @@ Workflow skills for Claude Code. By KOOMPI.
 ## Pipeline
 
 ```
-grill-me → to-prd → to-issues → implement
+grill-me → to-prd → to-issues → triage → implement
 ```
 
 | Skill | What it does |
@@ -15,6 +15,7 @@ grill-me → to-prd → to-issues → implement
 | `grill-me` | Relentless one-at-a-time interview to stress-test your plan |
 | `to-prd` | Synthesizes conversation into a structured PRD, publishes to GitHub Issues |
 | `to-issues` | Breaks PRD into vertical slice issues with acceptance criteria |
+| `triage` | Reviews each `needs-triage` issue with you one by one — approve, edit, skip, or close before any code runs |
 | `implement` | Ralph-loop that works through `ready` issues using TDD, closes each on completion |
 
 ## Requirements
@@ -36,11 +37,11 @@ Run `./install.sh` from inside your project directory to also create the require
 ## Usage
 
 ```
-1. /grill-me          — stress-test your idea
-2. /to-prd            — write and publish PRD
-3. /to-issues         — break PRD into issues (labeled needs-triage)
-4.                      Review issues, label the ones you want built: ready
-5. /implement         — ralph-loop builds everything, closes issues as it goes
+1. /grill-me    — stress-test your idea
+2. /to-prd      — write and publish PRD
+3. /to-issues   — break PRD into issues (labeled needs-triage)
+4. /triage      — review each issue with you, label approved ones ready
+5. /implement   — ralph-loop builds everything, closes issues as it goes
 ```
 
 ## Docs
