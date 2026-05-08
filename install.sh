@@ -15,7 +15,7 @@ fi
 echo "✓ gh authenticated"
 
 # Check ralph-loop
-if ! find "$HOME/.claude/plugins/cache" -name "ralph-loop" -type d &>/dev/null | grep -q ralph; then
+if ! find "$HOME/.claude/plugins/cache" -name "ralph-loop" -type d 2>/dev/null | grep -q ralph; then
   echo ""
   echo "WARNING: ralph-loop plugin not found in ~/.claude/plugins/cache/"
   echo "Install it via: /plugins install ralph-loop@claude-plugins-official"
@@ -26,10 +26,19 @@ fi
 # Create required labels in current repo
 if gh repo view &>/dev/null 2>&1; then
   echo "Creating labels in $(gh repo view --json nameWithOwner -q .nameWithOwner)..."
-  gh label create "needs-triage" --color "#ededed" --description "Needs triage review" --force
-  gh label create "ready"        --color "#0075ca" --description "Ready to implement"  --force
-  gh label create "in-progress"  --color "#e4e669" --description "Currently being implemented" --force
-  echo "✓ Labels created"
+  for label_name in "needs-triage" "ready" "in-progress"; do
+    if ! gh label list --json name -q '.[].name' | grep -qx "$label_name"; then
+      case "$label_name" in
+        "needs-triage") COLOR="#ededed"; DESC="Needs triage review" ;;
+        "ready")        COLOR="#0075ca"; DESC="Ready to implement" ;;
+        "in-progress")  COLOR="#e4e669"; DESC="Currently being implemented" ;;
+      esac
+      gh label create "$label_name" --color "$COLOR" --description "$DESC"
+      echo "✓ Created label: $label_name"
+    else
+      echo "✓ Label exists: $label_name (skipped)"
+    fi
+  done
 else
   echo "NOTE: Not inside a GitHub repo — skipping label creation. Run install.sh from your project directory to create labels."
 fi
@@ -38,13 +47,26 @@ fi
 mkdir -p "$SKILLS_DIR"
 for skill in grill-me to-prd to-issues implement; do
   target="$SKILLS_DIR/$skill"
+  expected="$REPO_DIR/skills/$skill"
   if [ -L "$target" ]; then
+    current=$(readlink "$target")
+    if [ "$current" = "$expected" ]; then
+      echo "✓ Already linked: $skill"
+      continue
+    fi
+    echo "Replacing existing symlink for $skill (was: $current)"
     rm "$target"
+  elif [ -e "$target" ]; then
+    echo "WARNING: $target exists and is not a symlink — skipping $skill. Remove manually to install."
+    continue
   fi
-  ln -s "$REPO_DIR/skills/$skill" "$target"
+  ln -s "$expected" "$target"
   echo "✓ Linked $skill"
 done
 
+echo ""
+echo "NOTE: Uses your current gh token. Recommend a repo-scoped token for implement:"
+echo "      gh auth refresh --scopes repo"
 echo ""
 echo "Done. Restart Claude Code to load the skills."
 echo "Pipeline: grill-me → to-prd → to-issues → implement"
