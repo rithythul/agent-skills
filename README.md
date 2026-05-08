@@ -49,6 +49,14 @@ Run `./install.sh` from inside your project directory to also create the require
 - [Pipeline walkthrough](docs/pipeline.md)
 - [ralph-loop setup](docs/ralph-loop.md)
 
+## Credits
+
+`grill-me`, `to-prd`, `to-issues`, and `tdd` are adapted from **[mattpocock/skills](https://github.com/mattpocock/skills)** by [Matt Pocock](https://github.com/mattpocock) — the original workflow that inspired this pipeline. MIT licensed.
+
+`implement` and `triage` were built on top of that foundation by KOOMPI, with the ralph-loop integration and human-gate pattern added for autonomous execution safety.
+
+`caveman` mode (the `!c` directive) is adapted from **[JuliusBrussee/caveman](https://github.com/JuliusBrussee/caveman)** by Julius Brussee.
+
 ## License
 
 MIT © KOOMPI · [koompi.com](https://koompi.com)
