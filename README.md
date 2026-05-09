@@ -49,6 +49,20 @@ Run `./install.sh` from inside your project directory to also create the require
 - [Pipeline walkthrough](docs/pipeline.md)
 - [ralph-loop setup](docs/ralph-loop.md)
 
+## Statusline
+
+`install.sh` also installs a colored statusline (skip with `--no-statusline`):
+
+```
+➜ repo:branch✗ │ Sonnet 4.6 v2.0.31 │ 3m12s │ ctx:130k/200k 65% │ +42/-12 │ ⚡xhigh │ 🧠think
+```
+
+Shows: repo + branch (red if dirty), model + Claude Code version, session duration, context usage (yellow ≥50%, red ≥65%), lines added/removed, and reasoning-effort / thinking / vim / rate-limit indicators when relevant.
+
+The `ctx` color flips red at 65% — matches the `CLAUDE_AUTOCOMPACT_PCT_OVERRIDE=65` setting (compact at ~130k on 200k models, ~650k on 1M). Set that env var separately if you want auto-compact too.
+
+If you already have a `statusLine` configured, install will print a snippet instead of overwriting it.
+
 ## Token efficiency
 
 `install.sh` automatically adds a `directives.md` include to your `~/.claude/CLAUDE.md`. This ships a caveman mode directive — prefix any message with `!c` to compress Claude's output ~75% for the session.

@@ -3,16 +3,19 @@ set -euo pipefail
 
 REPO_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 PROJECT_MODE=false
+NO_STATUSLINE=false
 
 # Parse flags
 for arg in "$@"; do
   case $arg in
-    --project) PROJECT_MODE=true ;;
+    --project)        PROJECT_MODE=true ;;
+    --no-statusline)  NO_STATUSLINE=true ;;
     --help|-h)
-      echo "Usage: ./install.sh [--project]"
+      echo "Usage: ./install.sh [--project] [--no-statusline]"
       echo ""
-      echo "  (no flag)   Install globally into ~/.claude/skills/  (all projects)"
-      echo "  --project   Install into .claude/skills/ in current directory (this project only)"
+      echo "  (no flag)        Install globally into ~/.claude/skills/  (all projects)"
+      echo "  --project        Install into .claude/skills/ in current directory (this project only)"
+      echo "  --no-statusline  Skip the statusline install"
       exit 0
       ;;
   esac
@@ -101,6 +104,37 @@ else
   echo "$INCLUDE_LINE" >> "$GLOBAL_CLAUDE"
   echo "✓ Added directives to $GLOBAL_CLAUDE"
   echo "  → $INCLUDE_LINE"
+fi
+
+# Install statusline (global only — settings.json is user-scoped)
+if ! $NO_STATUSLINE && ! $PROJECT_MODE; then
+  STATUSLINE_SRC="$REPO_DIR/statusline.sh"
+  SETTINGS="$HOME/.claude/settings.json"
+  STATUSLINE_CMD="bash $STATUSLINE_SRC"
+
+  if ! command -v jq >/dev/null 2>&1; then
+    echo "WARNING: jq not found — skipping statusline install. Install jq, then re-run."
+  else
+    mkdir -p "$(dirname "$SETTINGS")"
+    [ -f "$SETTINGS" ] || echo '{}' > "$SETTINGS"
+
+    existing=$(jq -r '.statusLine.command // empty' "$SETTINGS")
+    if [ "$existing" = "$STATUSLINE_CMD" ]; then
+      echo "✓ Statusline already installed"
+    elif [ -n "$existing" ]; then
+      echo ""
+      echo "NOTE: Existing statusLine in $SETTINGS — not overwriting."
+      echo "      Current: $existing"
+      echo "      To switch, set:"
+      echo "        \"statusLine\": { \"type\": \"command\", \"command\": \"$STATUSLINE_CMD\" }"
+      echo ""
+    else
+      tmp=$(mktemp)
+      jq --arg cmd "$STATUSLINE_CMD" \
+        '.statusLine = {"type":"command","command":$cmd}' "$SETTINGS" > "$tmp" && mv "$tmp" "$SETTINGS"
+      echo "✓ Installed statusline → $SETTINGS"
+    fi
+  fi
 fi
 
 echo ""
