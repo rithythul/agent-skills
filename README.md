@@ -2,9 +2,13 @@
 
 # agent-skills
 
-Workflow skills for Claude Code. By KOOMPI.
+A curated collection of Claude Code skills we use daily. Pulled from the best open-source skill authors and extended with our own.
 
-## Pipeline
+## Skills
+
+### Planning pipeline
+
+The core workflow — takes an idea from rough thought to shipped issues.
 
 ```
 grill-me → to-prd → to-issues → triage → implement
@@ -13,16 +17,42 @@ grill-me → to-prd → to-issues → triage → implement
 | Skill | What it does |
 |---|---|
 | `grill-me` | Relentless one-at-a-time interview to stress-test your plan |
+| `grill-for-me` | Two parallel subagents (Architect + Critic) debate each decision; you only answer what they can't settle |
 | `to-prd` | Synthesizes conversation into a structured PRD, publishes to GitHub Issues |
 | `to-issues` | Breaks PRD into vertical slice issues with acceptance criteria |
 | `triage` | Reviews each `needs-triage` issue with you one by one — approve, edit, skip, or close before any code runs |
 | `implement` | Ralph-loop that works through `ready` issues using TDD, closes each on completion |
 
+### Engineering
+
+| Skill | What it does |
+|---|---|
+| `diagnose` | Disciplined debugging loop: reproduce → minimise → hypothesise → instrument → fix → regression-test |
+| `tdd` | Red-green-refactor TDD loop with full reference docs on deep modules, mocking, and refactoring |
+| `improve-codebase-architecture` | Surfaces architectural friction and deepening opportunities informed by CONTEXT.md and ADRs |
+| `grill-with-docs` | Grilling session that sharpens plan against the domain model and updates CONTEXT.md / ADRs inline |
+| `prototype` | Throwaway prototype to answer a design question — terminal app or multi-variant UI route |
+
+### Design
+
+| Skill | What it does |
+|---|---|
+| `impeccable` | Full frontend design lifecycle: audit, shape, craft, polish, live variant mode, design system extraction |
+
+### Productivity
+
+| Skill | What it does |
+|---|---|
+| `handoff` | Compacts the current conversation into a doc so a fresh agent can continue |
+| `write-a-skill` | Guided authoring of new skills with proper structure and bundled reference files |
+| `zoom-out` | Reorients the agent to a module's broader context using domain glossary vocabulary |
+| `caveman` | Cuts output tokens ~75% without losing technical precision — prefix any message with `!c` |
+
 ## Requirements
 
 - [Claude Code](https://claude.ai/code) with `gh` CLI authenticated
 - [ralph-loop plugin](docs/ralph-loop.md) — required for `implement`
-- GitHub-backed repo (skills use `gh` to read/write issues)
+- GitHub-backed repo (pipeline skills use `gh` to read/write issues)
 
 ## Install
 
@@ -34,21 +64,6 @@ cd agent-skills
 
 Run `./install.sh` from inside your project directory to also create the required GitHub labels (`needs-triage`, `ready`, `in-progress`).
 
-## Usage
-
-```
-1. /grill-me    — stress-test your idea
-2. /to-prd      — write and publish PRD
-3. /to-issues   — break PRD into issues (labeled needs-triage)
-4. /triage      — review each issue with you, label approved ones ready
-5. /implement   — ralph-loop builds everything, closes issues as it goes
-```
-
-## Docs
-
-- [Pipeline walkthrough](docs/pipeline.md)
-- [ralph-loop setup](docs/ralph-loop.md)
-
 ## Statusline
 
 `install.sh` also installs a colored statusline (skip with `--no-statusline`):
@@ -59,23 +74,13 @@ Run `./install.sh` from inside your project directory to also create the require
 
 Shows: repo + branch (red if dirty), model + Claude Code version, session duration, context usage (yellow ≥50%, red ≥65%), lines added/removed, and reasoning-effort / thinking / vim / rate-limit indicators when relevant.
 
-The `ctx` color flips red at 65% — matches the `CLAUDE_AUTOCOMPACT_PCT_OVERRIDE=65` setting (compact at ~130k on 200k models, ~650k on 1M). Set that env var separately if you want auto-compact too.
+## Security
 
-If you already have a `statusLine` configured, install will print a snippet instead of overwriting it.
+Audited May 2026. All skills are safe to use with the following notes:
 
-## Token efficiency
-
-`install.sh` automatically adds a `directives.md` include to your `~/.claude/CLAUDE.md`. This ships a caveman mode directive — prefix any message with `!c` to compress Claude's output ~75% for the session.
-
-```
-!c /grill-me    — terse questions, no padding
-!c /to-prd      — lean PRD, no filler prose
-!c /to-issues   — issue list only, no explanation
-!c /triage      — one-line per issue, approve/skip/close
-!c /implement   — status updates only, no narration
-```
-
-Say `normal mode` to restore full output. Directives stay current with `git pull` — no re-install needed.
+- **`implement` / `triage` / `to-issues`** interact with GitHub Issues. Issue body content is treated as data, not instructions — the skills include explicit guards against prompt injection. Standard caution applies when working with public or untrusted repos.
+- **`impeccable`** runs `npx impeccable *` (wildcard scoped to that package) and starts a local HTTP server for live variant mode. Token-validated; no external data sent.
+- All other skills are read/write local only with no network access.
 
 ## Credits
 
