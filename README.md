@@ -39,6 +39,12 @@ grill-me → to-prd → to-issues → triage → implement
 |---|---|
 | `impeccable` | Full frontend design lifecycle: audit, shape, craft, polish, live variant mode, design system extraction |
 
+### Writing
+
+| Skill | What it does |
+|---|---|
+| `humanize` | Rewrites AI-generated text to read as naturally human — targets template phrases, uniform cadence, passive voice, hedging, and 14 other structural AI tells |
+
 ### Productivity
 
 | Skill | What it does |
