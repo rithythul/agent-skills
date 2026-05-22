@@ -79,9 +79,16 @@ Say `normal mode` to restore full output. Directives stay current with `git pull
 
 ## Credits
 
-`grill-me`, `to-prd`, `to-issues`, and `tdd` are adapted from **[mattpocock/skills](https://github.com/mattpocock/skills)** by [Matt Pocock](https://github.com/mattpocock) — the original workflow that inspired this pipeline. MIT licensed.
+**[Matt Pocock](https://github.com/mattpocock)** — [`mattpocock/skills`](https://github.com/mattpocock/skills), MIT licensed.
+`grill-me`, `to-prd`, `to-issues`, `tdd`, `diagnose`, `zoom-out`, `prototype`, `handoff`, `write-a-skill`, `grill-with-docs`, `improve-codebase-architecture`
 
-`implement` and `triage` were built on top of that foundation by KOOMPI, with the ralph-loop integration and human-gate pattern added for autonomous execution safety.
+**[Paul Bakaus](https://github.com/pbakaus)** — [`pbakaus/impeccable`](https://github.com/pbakaus/impeccable), Apache 2.0 licensed.
+`impeccable`
+
+**[Julius Brussee](https://github.com/JuliusBrussee)** — [`JuliusBrussee/caveman`](https://github.com/JuliusBrussee/caveman).
+`caveman`
+
+`implement`, `triage`, and `grill-for-me` were built on top of Matt Pocock's foundation, with the ralph-loop integration, human-gate pattern, and dual-subagent design review added.
 
 ## License
 
