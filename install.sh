@@ -69,7 +69,11 @@ fi
 
 # Install skills
 mkdir -p "$SKILLS_DIR"
-for skill in grill-me to-prd to-issues triage implement; do
+for skill in \
+  grill-me grill-for-me to-prd to-issues triage implement \
+  diagnose tdd improve-codebase-architecture grill-with-docs prototype \
+  impeccable \
+  handoff write-a-skill zoom-out caveman; do
   target="$SKILLS_DIR/$skill"
   expected="$REPO_DIR/skills/$skill"
   if [ -L "$target" ]; then
@@ -142,5 +146,8 @@ echo "NOTE: Uses your current gh token. Recommend a repo-scoped token for implem
 echo "      gh auth refresh --scopes repo"
 echo ""
 echo "Done. Restart Claude Code to load the skills."
-echo "Pipeline: grill-me → to-prd → to-issues → triage → implement"
-echo "Token mode: prefix any message with !c to compress output (~75% fewer tokens)"
+echo ""
+echo "Planning:     /grill-me → /to-prd → /to-issues → /triage → /implement"
+echo "Engineering:  /diagnose  /tdd  /improve-codebase-architecture  /grill-with-docs  /prototype"
+echo "Design:       /impeccable  (requires: npm install -g impeccable)"
+echo "Productivity: /handoff  /write-a-skill  /zoom-out  /caveman (!c prefix)"
