@@ -11,333 +11,212 @@ user-invocable: true
 argument-hint: "[--tone casual|formal|neutral] [--intensity light|deep] [--register technical|marketing|essay|email] [text or file]"
 ---
 
-Rewrite AI-generated text so it reads as naturally human. Preserve all original meaning, facts, and the author's stated positions. Change structure, rhythm, word choice, and rhetorical patterns — not what is said.
+Rewrite AI-generated text so it reads as naturally human. Preserve all original meaning, facts, and the author's stated positions. Change structure, rhythm, word choice, and rhetorical patterns. Not what is said.
 
 ## Why AI Text Reads as AI
 
-Two measurable signatures:
-
-**Perplexity** — how predictable each next word is given what came before. AI picks the statistically likely token. Humans reach for the second- or third-choice word, domain jargon, idiom, or a fresh image.
-
-**Burstiness** — variance in sentence length and structure. AI produces uniform cadence. Humans alternate punchy fragments with sprawling clauses.
-
-Beyond metrics, AI has identifiable rhetorical habits — recurring constructions, signature phrases, and predictable paragraph architecture. The rules below target each one.
+Two measurable signatures: **perplexity** (AI picks the statistically likely token; humans reach for the second-choice word, domain jargon, or a fresh image) and **burstiness** (AI produces uniform cadence; humans alternate fragments with sprawling clauses). Beyond metrics: template phrases, binary foil constructions, and predictable paragraph architecture. The rules below target each one.
 
 ---
 
 ## The Fourteen Rules
 
-Apply every rule that triggers. They are cumulative — skipping any leaves fingerprints.
+Apply every rule that triggers. They are cumulative.
 
 ### Rule 1 — Kill Template Phrases
 
-Replace or cut on sight.
+Cut or replace on sight.
 
-| AI phrase | Replace with |
-|-----------|-------------|
-| It is important to note that | Drop entirely, or state the claim directly |
-| It is worth noting / mentioning | Cut |
-| Keep in mind that | Cut, or "Remember:" if needed |
-| In conclusion / To summarize / Overall | Cut the signpost; write the conclusion |
-| This is crucial / essential / vital | State WHY it matters instead |
-| Certainly / Absolutely / Of course | Cut |
-| As an AI language model | Cut |
-| I would be happy to / Feel free to | Cut |
-| Delve into / Dive deep into / Deep dive | Use: explore, examine, dig into, look at |
-| Utilize | Use: use |
-| Leverage (as a verb) | Use: use, apply, draw on, exploit |
-| Facilitate | Use: help, enable, allow, let, make possible |
-| Furthermore / Moreover / Additionally / In addition | Use: Also, And, On top of that — or cut |
-| In today's fast-paced world | Cut entirely |
-| In the ever-evolving landscape of | Cut |
-| In the world of / In the realm of | Cut |
-| When it comes to | Cut and rewrite the sentence |
-| Navigate the complexities of | Use: handle, work through, deal with |
-| Embark on a journey | Use: start, begin |
-| At the heart of | Use: central to, the core of — or be specific |
-| Stands as a testament to | Use: shows, proves, demonstrates |
-| Underscores the importance of | Use: shows why X matters |
-| Plays a pivotal / crucial role | Use: matters because, drives, decides |
-| Speaks volumes | Cut and say what it means |
-| A plethora of / A myriad of / Myriad | Use: many, dozens of, a flood of, countless |
-| Cutting-edge / State-of-the-art | Use: new, recent, latest — or name the specific tech |
-| Game-changer / Game-changing | Cut and explain what changes |
-| Groundbreaking / Revolutionary / Transformative | Be specific about what it broke/changed |
-| Paradigm shift | Cut or be specific |
-| Robust (outside engineering) | Use: strong, reliable, solid, durable |
-| Seamless / Seamlessly | Use: smooth, easy, frictionless — or cut |
-| Comprehensive / Holistic | Use: full, complete — or list what it covers |
-| Vibrant (as filler) | Cut or be specific (vibrant red? vibrant scene?) |
-| Rich tapestry / Tapestry of | Cut the metaphor entirely |
-| Synergy / Synergistic | Cut |
-| Ecosystem (outside biology/software) | Use: market, network, scene |
-| Foster (foster growth, foster innovation) | Use: grow, build, encourage, spark |
-| Unlock the potential of / Harness the power of | Use: use, tap, put to work |
-| Elevate / Empower | Be specific about how |
-| Ensure (overused) | Use: make sure, guarantee — or rewrite to be active |
-| Stakeholders | Name them: teams, customers, investors, users |
-| Actionable insights | Name the action |
-| Best practices | Name the practice |
-| Journey (as metaphor for any process) | Cut the metaphor |
+| Phrase | Action |
+|--------|--------|
+| it is important to note / it is worth noting / keep in mind | Drop; state the claim directly |
+| in conclusion / to summarize / overall | Cut the signpost; write the conclusion |
+| this is crucial / essential / vital | State WHY it matters |
+| certainly / absolutely / of course | Cut |
+| as an AI language model / I would be happy to / feel free to | Cut |
+| in today's fast-paced world / in the ever-evolving landscape / in the world of / in the realm of | Cut entirely |
+| when it comes to / navigate the complexities of | Cut; rewrite the sentence |
+| embark on a journey | start, begin |
+| at the heart of / stands as a testament to | be specific |
+| underscores the importance of / plays a pivotal role | state why it matters |
+| speaks volumes | say what it means |
+| cutting-edge / state-of-the-art / game-changer / groundbreaking / revolutionary / transformative / paradigm shift | name the specific thing |
+| rich tapestry / synergy | cut |
+| ecosystem (outside biology/software) | market, network, scene |
+| unlock the potential of / harness the power of / elevate / empower | be specific about how |
+| journey (as metaphor) | cut the metaphor |
+| utilize | use |
+| leverage (verb) | use, apply, draw on |
+| facilitate | help, enable, let |
+| furthermore / moreover / additionally / in addition | also, and — or cut |
+| a plethora of / a myriad of | many, dozens, countless |
+| robust (outside engineering) | strong, reliable, solid |
+| seamless / seamlessly | smooth, easy — or cut |
+| comprehensive / holistic | full, complete — or list what it covers |
+| vibrant (filler) | cut or name the specific quality |
+| foster | grow, build, encourage, spark |
+| delve into / dive deep into | explore, examine, dig into |
+| ensure (overused) | make sure — or rewrite as active |
+| stakeholders | name them: teams, customers, investors, users |
+| actionable insights | name the action |
+| best practices | name the practice |
 
-### Rule 2 — Break the "It's Not X, It's Y" Construction
+### Rule 2 — Break the Binary Foil
 
-The single most viral AI tell since 2024. Variants:
+Ban: "it is not X, it is Y" and all variants ("this isn't just about X, it's about Y," "not only X, but also Y," "more than X, it's Y"). Strip every instance. Assert Y directly. When the contrast matters, build it through a separate sentence that arrives at the distinction.
 
-- "This isn't just about X. It's about Y."
-- "It's not X — it's Y."
-- "Not only X, but also Y."
-- "More than X, it's Y."
+**Before:** *This isn't just a refactor. It's a rethink of how the module talks to the rest of the system.*
+**After:** *The refactor changes how the module talks to the rest of the system. The team rewrote the internals; the boundary followed.*
 
-Strip every instance. Replace with a direct assertion of Y. If the contrast genuinely matters, build it differently — through example, comparison, or a separate sentence that arrives at the distinction.
+### Rule 3 — Em-Dashes and Tricolons
 
-**Before:** *This isn't just a refactor — it's a rethink of how the module talks to the rest of the system.*
-**After:** *The refactor changes how the module talks to the rest of the system. The internals got rewritten; so did the boundary.*
+**Em-dashes (—): banned.** No standard keyboard produces one; the character appears in prose only through software substitution or AI generation. Replace with a period, comma, semicolon, or colon depending on the relationship between the clauses.
 
-### Rule 3 — Limit Em-Dashes and Tricolons
-
-**Em-dashes (—):** AI sprinkles them everywhere. Cap at one per paragraph, max two per page. Replace with periods, commas, parentheses, or colons. Keep them only where they earn their weight (sharp aside, dramatic pause).
-
-**Rule of three:** AI cannot resist "X, Y, and Z" lists. Audit every tricolon. Keep some — humans use them too — but break the pattern by:
-- Using two items instead of three
-- Using four
-- Folding one item into a longer clause
-- Letting one example stand alone
+**Rule of three:** Audit every tricolon. Humans use them, so keep some; break the pattern by using two items, four, or folding one item into a longer clause.
 
 **Before:** *The system is fast, reliable, and scalable. It handles requests, queues jobs, and logs events — quickly, cleanly, and at scale.*
 **After:** *The system handles thousands of requests per second without dropping any. Jobs queue cleanly. Logs land where they should.*
 
 ### Rule 4 — Break the Cadence (Burstiness)
 
-If three or more consecutive sentences in a paragraph fall within five words of each other in length, restructure. Mix:
+Three or more consecutive sentences within five words of each other in length require restructuring. Target mix within a paragraph: at least one fragment under seven words, at least one sentence over twenty words with a subordinate clause, and varied lengths between them.
 
-- 3–6 word fragments
-- 8–15 word standard sentences
-- 20–35 word sentences with subordinate clauses
-- Occasional 40+ word sentences that earn their length
-
-**Before (uniform, ~12 words each):**
-*The system processes requests in real time. It handles many connections at once. Each request is logged for debugging. The response goes back to the client.*
-
-**After (bursty):**
-*The system juggles thousands of live connections without batching or queuing — every request gets logged on the way through, and the client sees a response before the next one lands. Fast. Sometimes too fast for the dashboards.*
+**Before:** *The system processes requests in real time. It handles many connections at once. Each request is logged for debugging. The response goes back to the client.*
+**After:** *The system handles thousands of live connections at once. Every request logs on the way through, and the client receives a response before the next one lands. Fast. Sometimes too fast for the dashboards.*
 
 ### Rule 5 — Vary Sentence Openings
 
-AI opens with the subject. Audit a paragraph: if more than half its sentences start with the subject (often "The..." or "This..."), rotate.
+When more than half a paragraph's sentences open with the subject, rotate: time marker ("by the time the request lands"), condition ("if the cache is cold"), concession ("even when it works"), participle ("running on a single thread"), prepositional phrase ("under load, the buffer"), conjunction ("and that's the problem"), question ("why does this matter?").
 
-- Time marker: *"By the time the request lands..."*
-- Condition: *"If the cache is cold..."*
-- Concession: *"Even when it works..."*
-- Participle: *"Running on a single thread..."*
-- Prepositional: *"Under load, the buffer..."*
-- Conjunction: *"And that's the problem."*
-- Question: *"Why does this matter?"*
-
-Also kill the **"While X, Y" opener** — another AI signature. Replace with "Even though," "Although," or two separate sentences.
+Kill the **"While X, Y" opener** — an AI signature. Replace with "even though," "although," or two separate sentences.
 
 ### Rule 6 — Increase Lexical Surprise
 
-Disrupt the most-probable next word.
-
-- Swap generic verbs for specific ones: *said → admitted, conceded, blurted*; *showed → exposed, betrayed*; *helped → let, freed up, unblocked*
-- Trade abstract nouns for concrete images: *"improves performance" → "cuts p99 from 800ms to 90ms"*
-- Add a number, named example, or measurable result where AI stays vague
-- Reach for the second- or third-choice word occasionally — not wrong, just not the obvious one
-- Use domain jargon where it fits naturally; don't strip it for clarity
-
-This is the single biggest perplexity lever. One unexpected word per paragraph changes the texture.
+Disrupt the most-probable next word. Swap generic verbs for specific ones: *said → admitted, conceded, blurted; showed → exposed, betrayed; helped → freed up, unblocked.* Trade abstract nouns for concrete images: "improves performance" → "cuts p99 from 800ms to 90ms." Add a number, named example, or measurable result where the source stays vague. One unexpected word per paragraph changes the texture.
 
 ### Rule 7 — Cut Hedging and False Balance
 
-AI hedges to seem cautious. Strip it.
-
 | Hedged | Direct |
 |--------|--------|
-| It seems that | State it |
-| It could be argued that | State the argument |
-| One might say / Some would argue | Say it, or name who argues it |
-| This may suggest / It appears that | Drop the qualifier |
-| Generally speaking / For the most part | Quantify or drop |
-| In many cases / Often | Quantify if possible |
-| It is generally accepted that | Drop; make the claim |
-| There are several factors to consider | List them, or drop |
-| It depends on many factors | Name the factors that matter |
+| it seems that / it appears that | state it |
+| it could be argued / one might say / some would argue | state the argument, or name who argues it |
+| this may suggest | drop the qualifier |
+| generally speaking / for the most part / in many cases | quantify or drop |
+| it is generally accepted that | drop; make the claim |
+| there are several factors / it depends on many factors | name the factors |
 
-**False balance:** AI presents "both sides" even when one side is obviously right or there is no real debate. Cut the manufactured balance. Take the position the evidence supports.
+**False balance:** cut manufactured both-sides framing. Take the position the evidence supports.
 
-### Rule 8 — Prefer Active Voice; Quarantine the Passive
+### Rule 8 — Prefer Active Voice
 
-AI overuses passive voice because it lets the model avoid naming an agent. Convert passive to active wherever an agent exists.
+Convert passive to active wherever an agent exists. Keep passive only when the agent is unknown, irrelevant, or foregrounded intentionally.
 
 | Passive | Active |
 |---------|--------|
-| The request is processed by the server | The server processes the request |
-| It was decided that | We decided / The team decided |
-| Mistakes were made | Name who made them, or own them |
-| The feature is utilized by users | Users use the feature (and kill "utilize") |
-
-Keep passive only when: the agent is unknown, irrelevant, or deliberately obscured for emphasis on the object.
+| the request is processed by the server | the server processes the request |
+| it was decided that | the team decided |
+| mistakes were made | name who made them |
+| the feature is utilized by users | users use the feature |
 
 ### Rule 9 — Restructure Lists
 
-AI bullet-points everything. Humans use prose more than they bullet.
-
 - **2 items:** fold into a sentence with "and" or "or"
-- **3 items:** sentence with commas, or em-dash aside
-- **4–6 items:** bullets are fine; vary item length and opening word
-- **7+ items:** ask whether they're really distinct, or whether a table works better
+- **3 items:** sentence with commas
+- **4–6 items:** bullets; vary item length and opening word
+- **7+ items:** use a table, or ask whether they're truly distinct
 
-Bullet items themselves: AI starts each with a bolded noun + colon (`**Performance:** the system...`). Break this. Open some bullets with a verb, some with a full sentence, some with a fragment. Vary length wildly between items.
+Break the AI bullet pattern of **bold noun + colon** (`**Performance:** the system...`). Open some bullets with a verb, some with a full sentence, some with a fragment.
 
 ### Rule 10 — Thin the Transitions
 
-Cut on sight: *Furthermore, Moreover, Additionally, In addition, As a result, Consequently, Therefore, Thus, Hence, Subsequently, Finally, In summary, To conclude, Overall, Ultimately, Notably, Importantly.*
+Cut on sight: *furthermore, moreover, additionally, as a result, consequently, therefore, thus, hence, subsequently, finally, in summary, to conclude, overall, ultimately, notably, importantly.*
 
-Replace with: a line break, a short declarative that implies the connection, a *This*/*That* reference to the prior idea, or nothing — let logic carry the transition.
+Replace with a line break, a short declarative that implies the connection, a *this/that* reference to the prior idea, or nothing. Logic carries transitions; words marking them announce their absence.
 
 ### Rule 11 — Stop the Summary Echo
 
-AI restates. Two forms:
+Two forms: (1) **opening echo** — restating the prompt before answering; (2) **closing echo** — ending a paragraph by paraphrasing the topic sentence. Cut both. End on the strongest concrete point. Trust the reader.
 
-1. **Opening echo:** restating the prompt/question before answering. ("You asked about X. X is...") Cut.
-2. **Closing echo:** ending a paragraph by paraphrasing the topic sentence. ("So, as we've seen, X is indeed Y.") Cut.
+### Rule 12 — Cut Throat-Clearing
 
-End paragraphs on the strongest concrete point. Don't recap. Trust the reader.
+Cut: *"before we dive in," "it's helpful to understand that," "let's take a moment," "first, let's define," "to better understand X."*
 
-### Rule 12 — Cut Throat-Clearing and Over-Explanation
-
-AI explains obvious things and pre-justifies what it's about to say.
-
-Cut phrases like: *"Before we dive in..." "It's helpful to understand that..." "Let's take a moment to..." "First, let's define..."* (unless a definition is genuinely needed).
-
-Cut explanations of why you're explaining: *"To better understand X, it helps to know Y, which is important because..."* — just say Y, then X.
-
-If the reader already knows it from context, don't restate it. Aggressive cut: try removing the first sentence of every paragraph. Often the paragraph is stronger without it.
+Test: remove the first sentence of every paragraph. The paragraph is usually stronger without it.
 
 ### Rule 13 — Add Point of View
 
-AI writes from nowhere. Humans write from somewhere.
-
-Inject — where the register allows — a clear stance, a preference, a small piece of opinion, an aside about what surprised the writer, what didn't work, what they'd do differently. Even a single editorial word (*regrettably, oddly, finally, surprisingly*) can ground a paragraph in a perspective.
-
-For technical docs, POV looks like: stating tradeoffs as opinions ("Use Postgres unless you have a reason not to"), recommending defaults, flagging gotchas the author hit personally.
-
-For essays/marketing: clearer first-person presence, opinions stated as opinions, specific examples instead of universal claims.
+AI writes from nowhere. Humans write from somewhere. Inject — where the register allows — a clear stance, a preference, or an editorial aside. Even a single word ("regrettably," "oddly," "finally") grounds a paragraph in a perspective. For technical writing, POV is stated defaults and named tradeoffs: "use Postgres unless you have a specific reason not to."
 
 ### Rule 14 — Add One Authentic Imperfection Per Paragraph
 
-Humans don't write in perfect parallel. They:
-- Begin a thought and finish it differently
-- Drop in a parenthetical aside (even when it breaks flow)
-- Restart a sentence at a new angle: "Or rather — what I mean is..."
-- Let a sentence run a beat longer than strict editing would allow
-- Use a one-word sentence. Like this.
-- Trail off with a "..." when the ending is implied
+Humans don't write in perfect parallel. Options:
 
-One controlled imperfection per paragraph makes prose feel written, not generated. One — not three. Discipline matters.
+- A fragment. Like this.
+- A sentence that restarts at a new angle: "Or rather, what I mean is..."
+- A parenthetical aside (even when it breaks flow)
+- A sentence that runs a beat longer than strict editing would allow
+
+One per paragraph. Discipline matters.
 
 ---
 
-## Register-Specific Strategy
+## Register Adjustments
 
-The same nine rules apply, but emphasis shifts.
-
-### Technical Documentation
-- Keep precision; don't sacrifice accuracy for cadence
-- Prefer active voice strongly (Rule 8 weighted high)
-- POV (Rule 13) = stated defaults, opinions on tradeoffs, "use X unless..."
-- Keep necessary jargon; cut decorative jargon
-- Lists are often genuinely useful here — don't fold them aggressively
-- Code blocks, commands, signatures: untouchable
-
-### Essays / Long-form
-- Burstiness (Rule 4) weighted high — varied rhythm carries the read
-- POV (Rule 13) weighted highest — essay without stance is brochure
-- Imperfection (Rule 14) more generous; voice can be looser
-- Sensory and concrete detail in place of abstraction
-
-### Marketing Copy
-- Cut every cliché in Rule 1 — buyers are inoculated against AI-marketing tone
-- Specific numbers, named customers, concrete outcomes
-- Shorter sentences, more fragments
-- One bold claim is worth ten hedged ones
-- Avoid Rule 2's "not just X, it's Y" — it's the marketing-AI signature
-
-### Emails
-- Casual register by default unless context says otherwise
-- Drop greetings/sign-offs to their minimum
-- Single point per paragraph
-- Contractions on; hedging off
-- POV = the sender's actual ask, stated plainly in the first or second sentence
-
-### Default (no register specified)
-- Neutral register, contractions in moderation
-- Apply all rules at standard intensity
+| Register | Weight high | Weight low | Notes |
+|---|---|---|---|
+| Technical docs | Lexical precision (R6), active voice (R8) | List restructuring (R9) | Keep necessary jargon; cut decorative jargon. Code blocks, commands, signatures: untouchable. |
+| Essays | Cadence (R4), point of view (R13) | Sentence length caps | Essay without stance is brochure. Concrete detail over abstraction. |
+| Marketing | Template phrases (R1), binary foil (R2) | Fragments (R14) | One specific claim over ten hedged ones. Name outcomes and numbers. |
+| Emails | Stated ask (R13), hedging (R7) | Formality | State the ask in sentence one or two. Single point per paragraph. Contractions on. |
+| Default | All rules at standard intensity | — | Neutral register, contractions in moderation. |
 
 ---
 
 ## Process
 
-1. **Read the full text.** Identify the 3–5 worst tells before touching anything. Note the dominant patterns (em-dashes everywhere? all subject-first openings? bullet-heavy?).
-2. **Delete pass first.** Cut 15–30% before rewriting a single word. Template phrases, throat-clearing, summary echoes, hedges, transition words — all gone. Most AI text gets dramatically better from subtraction alone.
-3. **Rewrite paragraphs as units, not sentences.** Sentence-by-sentence edits leave AI syntax intact. Rebuild each paragraph's rhythm from scratch.
-4. **Run the checklist.** Verify each rule was applied or note why it didn't trigger.
-5. **Read aloud (mentally).** Where you stumble, fix. Where a sentence needs two reads, simplify or split.
-6. **Preserve facts, claims, and positions exactly.** Never change what is asserted — only how.
+1. **Read the full text.** Identify the 3–5 worst tells before touching anything.
+2. **Delete pass first.** Cut 15–30% before rewriting a word: template phrases, throat-clearing, summary echoes, hedges, transition words. Most AI text improves from subtraction alone.
+3. **Rewrite paragraphs as units.** Sentence-by-sentence edits leave AI syntax intact; rebuild rhythm from scratch.
+4. **Run the checklist.** Verify each rule triggered or note why it didn't.
+5. **Read aloud (mentally).** Where you stumble, fix. Two-read sentences: simplify or split.
+6. **Preserve facts exactly.** Never change what is asserted — only how.
 
 ## Output Format
 
-Present:
-
 1. The rewritten text in a fenced code block (or markdown block if the source was markdown), ready to copy.
-2. **What changed** — 3–6 bullets naming specific transforms. Example: *"Cut 9 template phrases, 4 em-dashes, 2 'not just X, it's Y' constructions. Folded two 3-item lists into prose. Broke uniform cadence in paragraphs 2 and 4. Added POV in opening (stated preference for Postgres)."*
+2. **What changed** — 3–6 bullets naming specific transforms: *"Cut 9 template phrases, 2 binary foil constructions. Folded two 3-item lists into prose. Broke uniform cadence in paragraphs 2 and 4. Added POV in opening."*
 
 ### Intensity Modes
 
-- **light:** fix template phrases (Rule 1), em-dashes (Rule 3), worst cadence problems (Rule 4). Leave structure intact.
-- **default:** all fourteen rules at standard application.
-- **deep:** restructure at the paragraph level, make bolder lexical choices, inject stronger POV, allow more imperfection.
+- **light:** Rules 1, 3, 4. Leave structure intact.
+- **default:** All fourteen rules at standard application.
+- **deep:** Restructure at the paragraph level, bolder lexical choices, stronger POV, more imperfection.
 
-## What NOT to Change
+---
 
-- Proper nouns, brand names, product names
-- Code, commands, file paths, URLs, function signatures
-- Numbers, dates, citations, quotations
-- The author's stated opinions and conclusions
-- Technical definitions requiring precise wording
-- Legal/compliance language where exact phrasing matters
-- The original language (don't translate)
+## Constraints
 
-## What NOT to Do
+**Never change:** proper nouns, brand names, code, commands, file paths, URLs, function signatures, numbers, dates, citations, quotations, the author's stated opinions, technical definitions, legal language, the original language.
 
-- Don't add slang that doesn't fit the register
-- Don't introduce factual errors in pursuit of "voice"
-- Don't flip casual to formal or vice versa unless asked
-- Don't add ironic asides to formal documents
-- Don't fake emotion or personality the author didn't signal
-- Don't replace one cliché with another (replacing "leverage" with "harness" is no improvement)
-- Don't make changes you can't justify against a specific rule
+**Never do:** add slang that doesn't fit the register; introduce factual errors in pursuit of voice; flip register without instruction; add ironic asides to formal documents; fake emotion the author didn't signal; replace one cliché with another ("leverage" → "harness" is no improvement); make changes unjustifiable against a specific rule.
 
 ---
 
 ## Quick-Reference Checklist
 
-Before marking done:
-
-- [ ] No phrases from Rule 1 remain
-- [ ] No "it's not X, it's Y" constructions (Rule 2)
-- [ ] Em-dashes capped (≤1 per paragraph); tricolons broken up (Rule 3)
-- [ ] No three consecutive sentences within 5 words of each other in length (Rule 4)
+- [ ] No template phrases or buzzwords (Rule 1)
+- [ ] No binary foil constructions (Rule 2)
+- [ ] No em-dashes; tricolons varied (Rule 3)
+- [ ] No three consecutive sentences within 5 words of each other (Rule 4)
 - [ ] Sentence openings varied; no "While X, Y" openers (Rule 5)
-- [ ] At least one unexpected word choice per paragraph; concrete over abstract (Rule 6)
+- [ ] At least one specific word, number, or concrete image per paragraph (Rule 6)
 - [ ] No hedging phrases; no false balance (Rule 7)
 - [ ] Passive converted to active wherever an agent exists (Rule 8)
-- [ ] Lists of ≤3 items folded into prose; bullet openings varied (Rule 9)
+- [ ] 2–3 item lists folded into prose; 7+ into a table (Rule 9)
 - [ ] Transition words gone or replaced (Rule 10)
 - [ ] No opening or closing summary echoes (Rule 11)
-- [ ] No throat-clearing; no over-explaining the obvious (Rule 12)
+- [ ] No throat-clearing preamble (Rule 12)
 - [ ] POV present: a stance, preference, or perspective grounds the text (Rule 13)
-- [ ] One authentic imperfection per paragraph (Rule 14)
+- [ ] One authentic variation per paragraph (Rule 14)
 - [ ] Tense and person consistent throughout
-- [ ] All original facts, numbers, names, and positions preserved exactly
+- [ ] All original facts, numbers, names, citations, and positions preserved exactly
