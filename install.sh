@@ -73,7 +73,7 @@ for skill in \
   grill-me grill-for-me to-prd to-issues triage implement \
   diagnose tdd improve-codebase-architecture grill-with-docs prototype \
   impeccable \
-  handoff write-a-skill zoom-out caveman; do
+  handoff write-a-skill zoom-out caveman humanize; do
   target="$SKILLS_DIR/$skill"
   expected="$REPO_DIR/skills/$skill"
   if [ -L "$target" ]; then
